@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hashmat Travel & Tours | Hajj, Umrah & Worldwide Travel</title>
+<style>
+  :root{
+    --ink:#1b2620; --paper:#faf7f0; --teal:#0f3d3a; --teal-deep:#0a2b29;
+    --gold:#b8862f; --gold-soft:#e7d3a7; --line:#d9d1bd; --muted:#5c6560;
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+    box-sizing:border-box;
+  }
+  *{box-sizing:border-box;}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --ink:#efe9dc; --paper:#101613; --line:#28332e; --muted:#9aa39c; --teal:#7fb8ad; --teal-deep:#0a2b29; --gold:#d9ab5c; }
+  }
+  :root[data-theme="dark"]{ --ink:#efe9dc; --paper:#101613; --line:#28332e; --muted:#9aa39c; --teal:#7fb8ad; --teal-deep:#0a2b29; --gold:#d9ab5c; }
+  html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Iowan Old Style',Georgia,'Noto Serif',serif;line-height:1.5;}
+  h1,h2,h3{font-family:Georgia,'Noto Serif',serif;font-weight:600;margin:0 0 .4em;letter-spacing:.01em;}
+  p{margin:0 0 1em;color:var(--muted);}
+  a{color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 28px;}
+  .btn{display:inline-block;padding:.85em 1.6em;border-radius:2px;text-decoration:none;font-family:Arial,sans-serif;font-size:.85rem;letter-spacing:.03em;border:1px solid transparent;cursor:pointer;}
+  .btn-gold{background:var(--gold);color:#1b1405;}
+  .btn-line{border-color:var(--gold-soft);color:var(--ink);}
+  header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;max-width:1100px;margin:0 auto;flex-wrap:wrap;gap:10px;}
+  .brand{font-family:Georgia,serif;font-size:1.3rem;font-weight:700;color:var(--teal);}
+  nav{display:flex;gap:22px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:.85rem;}
+  nav a{text-decoration:none;color:var(--ink);}
+  .phones{font-family:Arial,sans-serif;font-size:.8rem;color:var(--muted);display:flex;gap:14px;}
+  .hero{background:linear-gradient(180deg,var(--teal-deep),var(--teal));color:#f4efdf;padding:90px 0 70px;}
+  .hero .eyebrow{font-family:Arial,sans-serif;font-size:.8rem;color:var(--gold-soft);margin-bottom:14px;}
+  .hero h1{font-size:clamp(2.1rem,4.4vw,3.3rem);max-width:14ch;color:#fff;}
+  .hero p{color:#cfe0da;max-width:52ch;font-size:1.05rem;}
+  .hero .ctas{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap;}
+  section{padding:64px 0;border-bottom:1px solid var(--line);}
+  .sec-label{font-family:Arial,sans-serif;font-size:.8rem;color:var(--gold);margin-bottom:8px;}
+  .sec-head{max-width:60ch;margin-bottom:38px;}
+  .sec-head p{font-size:1rem;}
+  form.planner{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:10px;}
+  form.planner label{display:flex;flex-direction:column;font-family:Arial,sans-serif;font-size:.78rem;color:var(--muted);gap:6px;}
+  form.planner input,form.planner select,form.planner textarea{font-family:Arial,sans-serif;padding:.6em .7em;border:1px solid var(--line);border-radius:3px;background:var(--paper);color:var(--ink);font-size:.9rem;}
+  form.planner .full{grid-column:1/-1;}
+  .stepper{display:flex;gap:8px;align-items:center;font-family:Arial,sans-serif;}
+  .stepper button{width:28px;height:28px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:3px;cursor:pointer;font-size:1rem;}
+  .planner .submit-row{grid-column:1/-1;display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;}
+  .trust-row{display:flex;gap:34px;flex-wrap:wrap;margin-top:26px;font-family:Arial,sans-serif;font-size:.85rem;color:var(--gold-soft);}
+  .grid{display:grid;gap:22px;}
+  .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+  .grid.cols-4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+  .card{border:1px solid var(--line);border-radius:4px;padding:22px;background:var(--paper);}
+  .card .tag{font-family:Arial,sans-serif;font-size:.72rem;color:var(--gold);margin-bottom:10px;}
+  .card h3{font-size:1.1rem;}
+  .card .meta{font-family:Arial,sans-serif;font-size:.78rem;color:var(--muted);margin:10px 0;}
+  .card .price{font-family:Arial,sans-serif;font-size:.75rem;color:var(--muted);}
+  .card .price b{font-size:1rem;color:var(--ink);display:block;}
+  .card a.view{font-family:Arial,sans-serif;font-size:.8rem;color:var(--teal);text-decoration:none;border-bottom:1px solid var(--teal);}
+  .places{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);}
+  .place{flex:1 1 200px;padding:18px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-family:Arial,sans-serif;font-size:.9rem;}
+  .place b{display:block;font-family:Georgia,serif;font-size:1.05rem;margin-top:4px;}
+  .process{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;}
+  .process .step{border-left:2px solid var(--gold);padding-left:16px;}
+  .process .num{font-family:Arial,sans-serif;color:var(--gold);font-size:.85rem;}
+  .services-list{columns:2;column-gap:40px;font-family:Arial,sans-serif;}
+  .services-list li{padding:10px 0;border-bottom:1px solid var(--line);list-style:none;}
+  .stats{display:flex;gap:40px;flex-wrap:wrap;margin-top:20px;}
+  .stats div b{font-size:1.8rem;display:block;color:var(--teal);}
+  .stats div span{font-family:Arial,sans-serif;font-size:.78rem;color:var(--muted);}
+  blockquote{border-left:2px solid var(--gold);padding-left:18px;font-style:italic;margin:26px 0 0;}
+  .visa-list{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;}
+  .visa-list a{font-family:Arial,sans-serif;font-size:.85rem;border:1px solid var(--line);padding:.7em 1.1em;border-radius:3px;text-decoration:none;}
+  .cta-final{background:var(--teal-deep);color:#f4efdf;text-align:center;padding:70px 0;border-bottom:none;}
+  .cta-final h2{color:#fff;}
+  .cta-final .ctas{display:flex;justify-content:center;gap:14px;margin-top:18px;flex-wrap:wrap;}
+  footer{padding:50px 0 30px;font-family:Arial,sans-serif;font-size:.85rem;color:var(--muted);}
+  footer .grid{grid-template-columns:2fr 1fr 1fr 1.4fr;}
+  footer h4{font-family:Arial,sans-serif;font-size:.8rem;color:var(--ink);margin-bottom:12px;}
+  footer ul{list-style:none;padding:0;margin:0;}
+  footer li{margin-bottom:8px;}
+  footer .bottom{border-top:1px solid var(--line);margin-top:34px;padding-top:18px;font-size:.78rem;}
+  @media (max-width:640px){ .services-list{columns:1;} footer .grid{grid-template-columns:1fr 1fr;} }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="topbar">
+    <div class="brand">Hashmat Travel &amp; Tours</div>
+    <nav>
+      <a href="#hero">Home</a><a href="#about">About</a><a href="#packages">Hajj/Umrah</a>
+      <a href="#international">International</a><a href="#domestic">Domestic</a><a href="#visa">Visas</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="phones"><a href="tel:+923009224346">+92 300 922 4346</a><a href="tel:+923237189361">+92 323 718 9361</a></div>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="eyebrow">Hajj · Umrah · Worldwide Travel</div>
+    <h1>Your Journey of Faith, Comfort &amp; Peace of Mind</h1>
+    <p>Thoughtfully planned Hajj, Umrah and travel experiences with reliable assistance from departure to return.</p>
+    <div class="ctas">
+      <a class="btn btn-gold" href="#packages">Explore Hajj &amp; Umrah</a>
+      <a class="btn btn-line" href="#contact">Plan Your Journey</a>
+    </div>
+    <div class="trust-row">
+      <span>Hajj &amp; Umrah Support</span><span>Hotel &amp; Transport</span><span>Visa Assistance</span><span>Personal Planning</span>
+    </div>
+  </div>
+</section>
+
+<section id="planner">
+  <div class="wrap">
+    <div class="sec-label">Personal travel planner</div>
+    <div class="sec-head"><h2>Design your journey</h2><p>Tell us the details and we'll shape a plan around them.</p></div>
+    <form class="planner" onsubmit="event.preventDefault();document.getElementById('plannerMsg').textContent='Thanks — a travel expert will reach out shortly.';">
+      <label>Full Name<input type="text" placeholder="Your name" required></label>
+      <label>Phone Number<input type="tel" placeholder="03xx xxxxxxx"></label>
+      <label>Email Address<input type="email" placeholder="you@example.com"></label>
+      <label>Travel Type
+        <select><option value="">Select type</option><option>Hajj</option><option>Umrah</option><option>International Tour</option><option>Domestic Tour</option></select>
+      </label>
+      <label>Destination<input type="text" placeholder="e.g. Makkah, Dubai"></label>
+      <label>Departure City<input type="text"></label>
+      <label>Return City<input type="text"></label>
+      <label>Date of Arrival<input type="date"></label>
+      <label>Date of Departure<input type="date"></label>
+      <label>Number of Nights<input type="number" min="1"></label>
+      <label>Hotel Category
+        <select><option value="">Select category</option><option>Standard</option><option>Premium</option><option>Luxury</option><option>Advise me</option></select>
+      </label>
+      <label>Room Requirement
+        <select><option value="">Select room</option><option>Single</option><option>Double</option><option>Triple</option><option>Family</option></select>
+      </label>
+      <label>Adults
+        <span class="stepper"><button type="button" onclick="step('adults',-1)">−</button><span id="adults">2</span><button type="button" onclick="step('adults',1)">+</button></span>
+      </label>
+      <label>Children
+        <span class="stepper"><button type="button" onclick="step('children',-1)">−</button><span id="children">0</span><button type="button" onclick="step('children',1)">+</button></span>
+      </label>
+      <label>Visa Requirement
+        <select><option value="">Select option</option><option>Yes</option><option>No</option><option>Need guidance</option></select>
+      </label>
+      <label class="full">Additional Requirements<textarea rows="3" placeholder="Anything else we should know"></textarea></label>
+      <div class="submit-row">
+        <button type="submit" class="btn btn-gold">Get My Travel Plan</button>
+        <a class="btn btn-line" href="tel:+923009224346">Talk to a Travel Expert</a>
+      </div>
+      <div class="full" id="plannerMsg" style="font-family:Arial,sans-serif;font-size:.85rem;color:var(--teal);"></div>
+    </form>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-label">About Hashmat</div>
+    <div class="sec-head">
+      <h2>Travel With Purpose. Journey With Confidence.</h2>
+      <p>We help pilgrims and travelers make complex arrangements feel clear and considered. From visa guidance and accommodation to transport coordination and personal assistance, each detail is shaped around comfort, clarity and peace of mind.</p>
+      <a class="btn btn-line" href="#contact">Discover Our Story</a>
+    </div>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="wrap">
+    <div class="sec-label">Sacred journeys</div>
+    <div class="sec-head"><h2>Hajj &amp; Umrah, thoughtfully arranged</h2><p>Flexible package directions ready to be tailored when dates, hotels and verified prices are supplied.</p></div>
+    <div class="grid cols-3" id="packageGrid"></div>
+  </div>
+</section>
+
+<section id="places">
+  <div class="wrap">
+    <div class="sec-label">Spiritual destinations</div>
+    <div class="sec-head"><h2>Places at the heart of the journey</h2><p>Explore respectful introductions to Makkah, Madinah and the sacred sites connected to Hajj and Umrah.</p></div>
+  </div>
+  <div class="places" id="placesGrid"></div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-label">Our approach</div>
+    <div class="sec-head"><h2>How we plan your journey</h2></div>
+    <div class="process" id="processGrid"></div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-label">Complete assistance</div>
+    <div class="sec-head"><h2>Travel services under one roof</h2></div>
+    <ul class="services-list" id="servicesList"></ul>
+  </div>
+</section>
+
+<section id="international">
+  <div class="wrap">
+    <div class="sec-label">Beyond borders</div>
+    <div class="sec-head"><h2>International journeys, elegantly planned</h2><p>Destination ideas to inspire your next enquiry. Itineraries, durations and prices remain editable until confirmed.</p></div>
+    <div class="grid cols-4" id="intlGrid"></div>
+    <div style="margin-top:26px;"><a class="btn btn-line" href="#international">Explore International Tours</a></div>
+  </div>
+</section>
+
+<section id="domestic">
+  <div class="wrap">
+    <div class="sec-label">Pakistan, beautifully seen</div>
+    <div class="sec-head"><h2>Journeys closer to home</h2></div>
+    <div class="grid cols-4" id="domGrid"></div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="sec-label">Why Hashmat</div>
+    <div class="sec-head"><h2>One travel partner. Every essential considered.</h2></div>
+    <div class="grid cols-3" id="whyGrid"></div>
+    <div class="stats" id="statsRow"></div>
+    <blockquote>"Sample testimonial — replace with a verified customer review."<br><small>Customer initials · Umrah journey · Sample content</small></blockquote>
+  </div>
+</section>
+
+<section id="visa">
+  <div class="wrap">
+    <div class="sec-label">Visa assistance</div>
+    <div class="sec-head"><h2>Clear guidance for your next destination</h2></div>
+    <div class="visa-list" id="visaList"></div>
+  </div>
+</section>
+
+<section class="cta-final" id="contact">
+  <div class="wrap">
+    <div class="sec-label" style="color:var(--gold-soft)">Your journey starts here</div>
+    <h2>Ready to Begin Your Journey?</h2>
+    <p style="color:#cfe0da;max-width:48ch;margin:0 auto;">Tell us what matters to you. We'll help shape a thoughtful Hajj, Umrah or leisure travel plan.</p>
+    <div class="ctas">
+      <a class="btn btn-gold" href="#planner">Plan My Journey</a>
+      <a class="btn btn-line" href="tel:+923009224346">Talk to an Expert</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap grid">
+    <div>
+      <div class="brand" style="margin-bottom:10px;">Hashmat Travel &amp; Tours</div>
+      <p>Thoughtful Hajj, Umrah and worldwide travel arrangements, planned around your comfort and peace of mind.</p>
+    </div>
+    <div><h4>Quick Links</h4><ul><li><a href="#about">About Us</a></li><li><a href="#packages">Hajj/Umrah</a></li><li><a href="#international">International Tours</a></li><li><a href="#domestic">Domestic Tours</a></li></ul></div>
+    <div><h4>Travel Services</h4><ul><li><a href="#visa">Visa's</a></li><li><a href="#places">Gallery</a></li><li><a href="#contact">Contact</a></li><li>Hotel &amp; Flights</li></ul></div>
+    <div><h4>Stay in touch</h4><ul><li><a href="tel:+923009224346">+92 300 922 4346</a></li><li><a href="tel:+923237189361">+92 323 718 9361</a></li><li>Email &amp; office address to be added</li></ul></div>
+  </div>
+  <div class="wrap bottom">© 2026 Hashmat Travel &amp; Tours. Business details are editable placeholders.</div>
+</footer>
+
+<script>
+function step(id,d){const el=document.getElementById(id);let v=parseInt(el.textContent)+d;if(v<0)v=0;el.textContent=v;}
+
+const packages = ["Umrah Packages","Hajj Packages","Family Umrah","Group Umrah","Ramadan Umrah","Custom / Private Packages"];
+document.getElementById('packageGrid').innerHTML = packages.map(p=>`
+  <div class="card"><div class="tag">Hajj & Umrah</div><h3>${p}</h3>
+  <p>Carefully coordinated accommodation, transport and travel support.</p>
+  <div class="meta">Duration: add · Hotel: add · Transport · Visa support</div>
+  <div class="price">Starting from<b>PKR XX,XXX</b></div>
+  <a class="view" href="#packages">View Package →</a></div>`).join('');
+
+const places = ["Makkah","Masjid al-Haram","Kaaba","Madinah","Masjid an-Nabawi","Mina","Arafat","Muzdalifah","Maqam Ibrahim"];
+document.getElementById('placesGrid').innerHTML = places.map((p,i)=>`<div class="place">${String(i+1).padStart(2,'0')}<b>${p}</b></div>`).join('');
+
+const steps = [["Tell Us Your Travel Needs"],["We Build Your Itinerary"],["We Arrange Your Essentials"],["Travel With Confidence"]];
+document.getElementById('processGrid').innerHTML = steps.map((s,i)=>`<div class="step"><div class="num">${String(i+1).padStart(2,'0')}</div><h3>${s[0]}</h3><p>Clear guidance and attentive coordination at every stage.</p></div>`).join('');
+
+const services = ["Hajj & Umrah Packages","International Tours","Domestic Tours","Visa Assistance","Hotel Booking","Flight Booking","Airport Transfers","Transportation","Travel Consultation","Customized Packages"];
+document.getElementById('servicesList').innerHTML = services.map(s=>`<li>${s}</li>`).join('');
+
+const intl = ["Baku, Azerbaijan","Istanbul, Turkey","Dubai, UAE","Malaysia","Maldives","Saudi Arabia"];
+document.getElementById('intlGrid').innerHTML = intl.map(d=>`<div class="card"><div class="tag">International journey</div><h3>${d}</h3><p>Duration and details to be added</p></div>`).join('');
+
+const dom = ["Hunza","Skardu","Swat","Naran & Kaghan","Murree","Neelum Valley"];
+document.getElementById('domGrid').innerHTML = dom.map(d=>`<div class="card"><div class="tag">Domestic journey</div><h3>${d}</h3><p>Duration and details to be added</p></div>`).join('');
+
+const why = ["Personalized Travel Assistance","Transparent Planning","Comfort-Focused Arrangements","Visa Guidance","Hotel & Transport Coordination","Dedicated Support"];
+document.getElementById('whyGrid').innerHTML = why.map(w=>`<div class="card"><h3 style="font-size:1rem;">${w}</h3></div>`).join('');
+
+const stats = [["000+","Pilgrims Assisted · add verified number"],["000+","Travel Packages · add verified number"],["000+","Destinations · add verified number"],["000+","Customer Satisfaction · add verified number"]];
+document.getElementById('statsRow').innerHTML = stats.map(s=>`<div><b>${s[0]}</b><span>${s[1]}</span></div>`).join('');
+
+const visas = ["Saudi Visa","UAE Visa","Turkey Visa","Azerbaijan Visa","Other Destination Visas"];
+document.getElementById('visaList').innerHTML = visas.map(v=>`<a href="#visa">${v} — Check requirements</a>`).join('');
+</script>
+</body>
+</html>
